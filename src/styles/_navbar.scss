@@ -1,0 +1,90 @@
+.navbar{
+    position: fixed;
+    display: flex;
+    top: 0;
+    height: $navbarHeight;
+    width: calc(100vw - #{$drawerWidth});
+    margin-left: $drawerWidth;
+    padding: 0px 20px;
+    background-color: orange;
+    @include gradient(map-get($page-color,'base'), 0,4);
+    border-bottom: solid 2.5px $color-border; 
+    z-index: 1500; 
+    @media (max-width:798px){
+        width: 100vw;
+        margin-left: 0px;        
+     }
+    .navbar-item{
+        height: 100%;
+        &:nth-child(1),&:nth-child(2){
+            border-right: solid 2px #edeef3;
+        }
+        &:nth-child(1){
+            flex-grow: 1;
+        }
+        &:nth-child(2){
+            padding: 0px 25px;
+            span{
+                @include fontAwesomeStyling($color:#edeef3,$borderLess:true);
+            }
+            .counter{
+                position: absolute;
+                margin-bottom: 15px;
+                margin-left: 4px;
+            }
+        }
+        &:nth-child(3){
+            padding-left: 54px;
+            .profile{
+                .profile-holder{
+                    background-color:#fff;
+                    padding: 5px;
+                    width: 40px;
+                    border-radius: 50%;
+                    filter: drop-shadow(1px 5px 5px darken(#fff,17));
+                    img{
+                        width: 100%;
+                        border-radius: 50%;
+                        background-color: wheat;
+                    }
+                }
+            }
+            .profile-name{
+                font-size: 12px;
+                font-weight: 400;
+                padding-left: 18px;
+            }
+            .profile-dropdown-options{
+                span{
+                    opacity: 0.4;
+                    padding-left: 18px;
+                    font-size: 14px;
+                    cursor: pointer;
+                }   
+            }
+            .userOptions{
+                $width:120px;
+                position: absolute;
+                top:0;
+                margin-top: $navbarHeight/2+12;
+                width: $width;
+                background-color: #fff;
+                padding: 0px;
+                font-size: 12px;
+                font-weight: 600;
+                li{
+                    opacity: 0.6;
+                    border-bottom: solid 2px #edeef3;
+                    padding: 4px 15px;
+                    cursor: pointer;
+                    user-select: none;
+                    &:hover{
+                        color: white;
+                        background-color: black;
+                    }
+                }
+            }
+        }
+
+    }
+}

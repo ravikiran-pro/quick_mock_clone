@@ -1,0 +1,103 @@
+$page-color: (
+    "drawer": #fff,
+    "base": #edeef3,
+);
+
+@mixin gradient($color,$range1,$range2){
+    background-image:linear-gradient(to right , #{darken($color,$range1)}, #{lighten($color,$range2)});
+}
+
+@mixin  button-lg {
+    width: 100%;
+}
+
+@mixin fontAwesomeStyling($color:#595959,$backgroundColor:#fff,$width:1,$borderLess:false){
+     color: $color;
+     -webkit-text-stroke-width: $width;
+     -webkit-text-stroke-color: $backgroundColor;
+     cursor: pointer;
+     @if $borderLess{
+         text-shadow: -1px 0 #595959, 0 1px #595959, 1px 0 #595959, 0 -1px #595959;
+     }
+};
+
+$color-primary    : #155cff;
+$color-secondary  : #22cc92;
+$color-default    : #e8e8e8;
+$color-border     : #eaeaea;
+$drawerWidth      : 220px;
+$navbarHeight     : 58px;
+
+///base shadow
+.shadow-light{
+    box-shadow:
+        0 0.6px 3.1px -6px rgba(2, 9, 90, 0.07),
+        0 1px 9px -6px rgba(0, 6, 0, 0.9);
+}
+
+.shadow-dark{
+    box-shadow:
+      0 2.1px 3.1px -3px rgba(0, 0, 0, 0.12),
+      0 17px 25px -3px rgba(0, 0, 0, 0.24);
+}
+
+.btn{
+    &:focus{
+        box-shadow: none;  ///removing bootstrap on focus box shadow
+    }
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+///rippple effects for buttons 
+.ripple {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+  }
+  
+  .ripple:active:after {
+    transform: scale(0, 0);
+    opacity: .4;
+    transition: 0s;
+  }
+
+///counter button
+.counter-button{
+   &-green{
+       background-color: $color-secondary;
+       color: white;
+       border-radius: 50%;
+       font-weight: 600;
+   }
+    &-sm{
+        font-size: 8px;
+        width: 12px;
+        height: 12px;
+   }
+    &-lg{
+        font-size: 10px;
+        width: 18px;
+        height: 18px;
+   }
+}
